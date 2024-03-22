@@ -1,5 +1,5 @@
-CC=clang
-CXX=clang++
+CC=zig cc
+CXX=zig c++
 RM=rm -f
 # CPPFLAGS=-g $(shell root-config --cflags)
 # LDFLAGS=-g $(shell root-config --ldflags)
