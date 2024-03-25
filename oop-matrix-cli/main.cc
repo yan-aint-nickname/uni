@@ -17,7 +17,7 @@ void fillMatrix(matrix &values, int rows, int cols) {
 // Фнукция для подсчет кол-ва элементов больших, чем данное
 int countGreaterThan(const matrix &values, int value) {
     int count = 0;
-    for (const auto& row: values) {
+    for (const auto &row: values) {
         for (int element: row) {
             if (element > value) {
                 ++count;
@@ -36,7 +36,7 @@ void getUserInput(int &D, int &Q) {
 }
 
 int main() {
-	std::srand(static_cast<unsigned>(time(0))); // Seed random number generator
+    std::srand(static_cast<unsigned>(time(0))); // Seed random number generator
 
     // Define matrices A and B
     matrix A(5, std::vector<int>(8));
