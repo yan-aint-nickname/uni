@@ -45,7 +45,7 @@ class UserInput {
     static int Get(int &D, int &Q) {
         std::cout << "Введите число D: ";
         std::cin >> D;
-		// Проверка на ошибку чтения ввода
+        // Проверка на ошибку чтения ввода
         if (std::cin.fail()) {
             std::cout << "Введено не число " << std::endl;
             return 1;
@@ -53,7 +53,7 @@ class UserInput {
 
         std::cout << "Введите число Q: ";
         std::cin >> Q;
-		// Проверка на ошибку чтения ввода
+        // Проверка на ошибку чтения ввода
         if (std::cin.fail()) {
             std::cout << "Введено не число " << std::endl;
             return 1;
@@ -101,7 +101,7 @@ int main() {
     if (str_size >= 0 && str_size < sizeof(buf)) {
         str = buf;
     }
-    // Делаем системный вызов 1 раз
+    // Делаем системный вызов вывод в консоль 1 раз
     std::cout << str;
 
     return 0;

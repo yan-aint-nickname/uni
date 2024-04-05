@@ -4,7 +4,7 @@
 #import fletcher.shapes: diamond, parallelogram
 #set text(font: "Comic Neue", weight: 600)
 
-#diagram(
+#let user_input = diagram(
   node-stroke: 1pt,
   edge-stroke: 1pt,
   node((0,0), [Получить пользовательский ввод], extrude: (-2, 0)),

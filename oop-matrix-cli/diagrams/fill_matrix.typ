@@ -4,7 +4,7 @@
 #import fletcher.shapes: diamond, parallelogram
 #set text(font: "Comic Neue", weight: 600)
 
-#diagram(
+#let fill_matrix = diagram(
   node-stroke: 1pt,
   edge-stroke: 1pt,
   node((0,0), [Заполнить матрицы\ случайными числами], extrude: (-2, 0)),
