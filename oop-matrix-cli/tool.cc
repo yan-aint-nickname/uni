@@ -1,66 +1,60 @@
+#include "tool.hh"
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
-#include <vector>
 
-using matrix = std::vector<std::vector<int>>;
+#ifdef DEBUG_VALUES
+void Matrix::printValues() {
 
-class Matrix {
-  private:
-    matrix values;
-    int rows, columns;
-
-  public:
-    Matrix(int rows, int columns) : rows(rows), columns(columns) {
-        values.resize(rows, std::vector<int>(columns));
+    std::cout << std::endl;
+    for (const auto &row : values) {
+        for (int element : row) {
+            std::cout << element << " ";
+        }
+        std::cout << std::endl;
     }
+    std::cout << std::endl;
+}
+#endif
 
-    // Метод для заполнения матрицы случаными значениями
-    void fillWithRandomValues() {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                values[i][j] =
-                    std::rand() % 100; // Случайные числа между 0 и 99
+void Matrix::fillWithRandomValues() {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            values[i][j] = std::rand() % 10; // Случайные числа между 0 и 9
+        }
+    }
+}
+
+int Matrix::countGreaterThan(int value) {
+    int count = 0;
+    for (const auto &row : values) {
+        for (int element : row) {
+            if (element > value) {
+                count++;
             }
         }
     }
+    return count;
+}
 
-    // Метод для подсчет кол-ва элементов больших, чем данное
-    int countGreaterThan(int value) {
-        int count = 0;
-        for (const auto &row : values) {
-            for (int element : row) {
-                if (element > value) {
-                    ++count;
-                }
-            }
-        }
-        return count;
+int UserInput::Get(int &D, int &Q) {
+    std::cout << "Введите число D: ";
+    std::cin >> D;
+    // Проверка на ошибку чтения ввода
+    if (std::cin.fail()) {
+        std::cout << "Введено не число " << std::endl;
+        return 1;
     }
-};
 
-class UserInput {
-  public:
-    // Метод для получения данных от пользователя возвращает 1 если ошибка
-    static int Get(int &D, int &Q) {
-        std::cout << "Введите число D: ";
-        std::cin >> D;
-        // Проверка на ошибку чтения ввода
-        if (std::cin.fail()) {
-            std::cout << "Введено не число " << std::endl;
-            return 1;
-        }
-
-        std::cout << "Введите число Q: ";
-        std::cin >> Q;
-        // Проверка на ошибку чтения ввода
-        if (std::cin.fail()) {
-            std::cout << "Введено не число " << std::endl;
-            return 1;
-        }
-        return 0;
+    std::cout << "Введите число Q: ";
+    std::cin >> Q;
+    // Проверка на ошибку чтения ввода
+    if (std::cin.fail()) {
+        std::cout << "Введено не число " << std::endl;
+        return 1;
     }
-};
+    return 0;
+}
 
 int main() {
     // Инициализировать генератор псевдо-случайных чисел
@@ -87,6 +81,12 @@ int main() {
     int countA = A.countGreaterThan(D);
     // Посчитать кол-во элементов матрицы B больше Q
     int countB = B.countGreaterThan(Q);
+
+    // Флаг препроцессора -DDEBUG_VALUES
+#ifdef DEBUG_VALUES
+    A.printValues();
+    B.printValues();
+#endif
 
     // Вывести кол-во элементов матрицы A больше чем D
     // Вывести кол-во элементов матрицы B больше чем Q

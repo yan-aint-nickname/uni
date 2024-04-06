@@ -21,13 +21,31 @@
 = Задание
 Для каждой строки матрицы $A$ ($5 times 8$) "определить число элементов, больших $D$, а для каждой строки матрицы $B$ ($7 times 5$) "определить число элементов, больших $Q$; $D, Q$ — заданные значения.
 
-#let code = raw(read("main.cc"))
 
 == Код программы
 
+=== Заголовочный файл
+#let code = raw(read("tool.h"))
 #sourcecode(
   lang: "cpp",
 )[#code]
+
+=== Реализация
+#let code = raw(read("tool.cc"))
+#sourcecode(
+  lang: "cpp",
+)[#code]
+
+#pagebreak()
+== Модульное тестирование
+
+#let tests = raw(read("tool_test.cc"))
+#sourcecode(
+  lang: "cpp",
+)[#tests]
+
+#pagebreak()
+== Блок-схемы
 
 #figure(
   main_algo.chart_main,
