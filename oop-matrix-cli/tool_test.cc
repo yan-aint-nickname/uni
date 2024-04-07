@@ -1,22 +1,26 @@
-#include "vendor/cester.h"
-#include "tool.h"
+#include "vendor/utest.h"
+#include "tool.hh"
 
 
-CESTER_BEFORE_ALL(test_instance,
-		printf("Test started");
-)
+UTEST(values, less) {
+	int r = 5, c = 4;
+	Matrix X(r, c);
 
-CESTER_MOCK_FUNCTION(fillWithRandomValues, matrix,
-    Matrix A(5, 8);
+	int maxValue = 2;
+	X.fillWithRandomValues(maxValue);
+	
+	int biggerCounter = 0;
 
-	for (int i = 0; i < A.rows; i++) {
-		for (int j = 0; j < A.columns; j++) {
-			A[i][j] = 1
-		}
-	}
-	return A
-)
+	for (const auto &row : X.values) {
+        for (int element : row) {
+            if (element > maxValue) {
+                biggerCounter++;
+				break;
+            }
+        }
+		if (biggerCounter > 0) break; 
+    }
+  	ASSERT_EQ(biggerCounter, 0);
+}
 
-CESTER_TEST(check_mocked_function, test_instance,
-        cester_assert_cmp_msg(10, >, 2, "is 10 greater than 2");
-)
+UTEST_MAIN()
