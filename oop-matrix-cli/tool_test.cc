@@ -1,26 +1,51 @@
-#include "vendor/utest.h"
 #include "tool.hh"
+#include "vendor/utest.h"
 
+UTEST(Matrix, fillWithRandomValuesLessThanMax) {
+    int r = 5, c = 4;
+    Matrix X(r, c);
 
-UTEST(values, less) {
-	int r = 5, c = 4;
-	Matrix X(r, c);
+    int maxValue = 2;
+    X.fillWithRandomValues(maxValue);
 
-	int maxValue = 2;
-	X.fillWithRandomValues(maxValue);
-	
-	int biggerCounter = 0;
+    int greaterCounter = 0;
 
-	for (const auto &row : X.values) {
+    for (const auto &row : X.values) {
         for (int element : row) {
             if (element > maxValue) {
-                biggerCounter++;
-				break;
+                greaterCounter++;
+                break;
             }
         }
-		if (biggerCounter > 0) break; 
+        if (greaterCounter > 0)
+            break;
     }
-  	ASSERT_EQ(biggerCounter, 0);
+    ASSERT_EQ(greaterCounter, 0);
+}
+
+UTEST(Matrix, countGreaterThenGiven) {
+    int r = 5, c = 4;
+    Matrix X(r, c);
+
+    int maxValue = 10;
+    X.fillWithRandomValues(maxValue);
+
+    int givenNumber = 5;
+
+    // lte translates Less Than or Equal
+    int lteCounter = 0;
+
+    for (const auto &row : X.values) {
+        for (int element : row) {
+            if (element <= givenNumber) {
+                lteCounter++;
+            }
+        }
+    }
+    // gt translates Greater Than
+    int gtCounter = X.countGreaterThan(givenNumber);
+
+    ASSERT_EQ(gtCounter, (r * c) - lteCounter);
 }
 
 UTEST_MAIN()

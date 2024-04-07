@@ -5,6 +5,7 @@ RM=rm -f
 # LDLIBS=$(shell pkg-config --libs cppunit)
 
 SRCS=tool.cc main.cc
+TEST_SRCS=tool.cc tool_test.cc
 OBJS=$(subst .cc,.o,$(SRCS))
 
 all: tool
@@ -18,8 +19,11 @@ debug: $(OBJS)
 	# $(CXX) $(CPPFLAGS) -o tool_debug $(OBJS) $(LDLIBS) -DDEBUG_VALUES
 
 test:
-	$(CXX) tool_test.cc -o tool_test
+	$(CXX) $(TEST_SRCS) -o tool_test
 	./tool_test
+
+format:
+	clang-format -i *.cc *.hh
 
 clean:
 	$(RM) $(OBJS)
