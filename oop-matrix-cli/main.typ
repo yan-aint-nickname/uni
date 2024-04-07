@@ -1,6 +1,6 @@
 #import "template.typ": *
 
-#import "@preview/codelst:2.0.1": sourcecode
+#import "@preview/codelst:2.0.1": sourcecode, sourcefile
 
 #import "diagrams/main.typ" as main_algo
 #import "diagrams/user_input.typ" as input_algo
@@ -21,28 +21,53 @@
 = Задание
 Для каждой строки матрицы $A$ ($5 times 8$) "определить число элементов, больших $D$, а для каждой строки матрицы $B$ ($7 times 5$) "определить число элементов, больших $Q$; $D, Q$ — заданные значения.
 
+== Комментарии
+
+- Полный код программы находится в репозитории https://github.com/yan-aint-nickname/uni
+
+- Для компиляции я использовал https://ziglang.org/ 
+- Библиотека для тестирования https://github.com/sheredom/utest.h/
 
 == Код программы
 
 === Заголовочный файл
-#let code = raw(read("tool.h"))
-#sourcecode(
-  lang: "cpp",
-)[#code]
+
+#figure(
+  caption: "Заголовочный файл tool.hh",
+  sourcefile(
+    file: "tool.hh",
+    read("tool.hh"),
+  )
+)
 
 === Реализация
-#let code = raw(read("tool.cc"))
-#sourcecode(
-  lang: "cpp",
-)[#code]
+
+#figure(
+  caption: "Релазиация методов, алгоритма tool.cc",
+  sourcefile(
+    file: "tool.cc",
+    read("tool.cc"),
+  )
+)
+
+#figure(
+  caption: "Точка входа программы main.cc",
+  sourcefile(
+    file: "main.cc",
+    read("main.cc"),
+  )
+)
 
 #pagebreak()
 == Модульное тестирование
 
-#let tests = raw(read("tool_test.cc"))
-#sourcecode(
-  lang: "cpp",
-)[#tests]
+#figure(
+  caption: "Модульное тестирования с использованием библиотеки utest.h",
+  sourcefile(
+    file: "tool_test.cc",
+    read("tool_test.cc"),
+  )
+)
 
 #pagebreak()
 == Блок-схемы
@@ -64,5 +89,5 @@
 
 #figure(
   count_algo.count_values,
-  caption: "Схема работы программы для подсчета элементов больше задачнных значений",
+  caption: "Схема работы программы для подсчета элементов больше заданных значений",
 )
