@@ -8,16 +8,18 @@ int main() {
     std::srand(static_cast<unsigned>(time(0)));
 
     // Объявить матрицы A и B
-    Matrix A(5, 8);
-    Matrix B(7, 5);
+    RandomMatrix A(5, 8);
+    RandomMatrix B(7, 5);
+
+	ConsoleUserInput consoleUserInput;
 
     // Получить пользовательский ввод D и Q
     int D, Q, maxValue;
-    int err = UserInput::Get(D, Q, maxValue);
+    int err = consoleUserInput.Get(D, Q, maxValue);
 
     // Заполнить матрицы случаныйми числами
-    A.fillWithRandomValues(maxValue);
-    B.fillWithRandomValues(maxValue);
+    A.fillWithValues(maxValue);
+    B.fillWithValues(maxValue);
 
     // Завершить программу, если пользователь ввел некорректные данные
     if (err != 0) {
@@ -30,6 +32,7 @@ int main() {
     int countB = B.countGreaterThan(Q);
 
     // Флаг препроцессора -DDEBUG_VALUES
+	// FIX: Не работает с флагом компилятора
 #ifdef DEBUG_VALUES
     A.printValues();
     B.printValues();

@@ -3,7 +3,7 @@
 #include <iostream>
 
 #ifdef DEBUG_VALUES
-void Matrix::printValues() {
+void BaseMatrix::printValues() {
 
     std::cout << std::endl;
     for (const auto &row : values) {
@@ -16,7 +16,7 @@ void Matrix::printValues() {
 }
 #endif
 
-void Matrix::fillWithRandomValues(int maxValue = 10) {
+void RandomMatrix::fillWithValues(int maxValue = 10) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
             // Случайные числа между 0 и maxValue
@@ -25,7 +25,7 @@ void Matrix::fillWithRandomValues(int maxValue = 10) {
     }
 }
 
-int Matrix::countGreaterThan(int value) {
+int BaseMatrix::countGreaterThan(int value) {
     int count = 0;
     for (const auto &row : values) {
         for (int element : row) {
@@ -37,7 +37,7 @@ int Matrix::countGreaterThan(int value) {
     return count;
 }
 
-int UserInput::Get(int &D, int &Q, int &maxValue) {
+int ConsoleUserInput::Get(int &D, int &Q, int &maxValue) {
     std::cout << "Введите максимальное число матрицы: ";
     std::cin >> maxValue;
     // Проверка на ошибку чтения ввода
