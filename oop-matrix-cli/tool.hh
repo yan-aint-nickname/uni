@@ -1,6 +1,5 @@
-#include <vector>
-
 #pragma once
+#include <vector>
 
 using matrix = std::vector<std::vector<int>>;
 
@@ -9,20 +8,19 @@ class BaseMatrix {
     int rows, columns;
     matrix values;
 
+    BaseMatrix() = delete;
     BaseMatrix(int rows, int columns) : rows(rows), columns(columns) {
         values.resize(rows, std::vector<int>(columns));
     }
     // Метод для подсчета кол-ва элементов больших, чем данное
     int countGreaterThan(int value);
 
-#ifdef DEBUG_VALUES
     // Метод для вывода значений матрицы для отладки
     void printValues();
-#endif
 };
 
 class RandomMatrix : public BaseMatrix {
-	// Используем полиморфизм для переопределения конструктора
+    // Используем дефолтный конструктор BaseMatrix
     using BaseMatrix::BaseMatrix;
 
   public:

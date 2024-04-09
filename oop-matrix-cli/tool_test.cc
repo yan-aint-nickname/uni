@@ -3,10 +3,10 @@
 
 UTEST(Matrix, fillWithRandomValuesLessThanMax) {
     int r = 5, c = 4;
-    Matrix X(r, c);
+    RandomMatrix X(r, c);
 
     int maxValue = 2;
-    X.fillWithRandomValues(maxValue);
+    X.fillWithValues(maxValue);
 
     int greaterCounter = 0;
 
@@ -25,10 +25,10 @@ UTEST(Matrix, fillWithRandomValuesLessThanMax) {
 
 UTEST(Matrix, countGreaterThenGiven) {
     int r = 5, c = 4;
-    Matrix X(r, c);
+    RandomMatrix X(r, c);
 
     int maxValue = 10;
-    X.fillWithRandomValues(maxValue);
+    X.fillWithValues(maxValue);
 
     int givenNumber = 5;
 

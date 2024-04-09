@@ -31,11 +31,9 @@ int main() {
     // Посчитать кол-во элементов матрицы B больше Q
     int countB = B.countGreaterThan(Q);
 
-    // Флаг препроцессора -DDEBUG_VALUES
-#ifdef DEBUG_VALUES
+    // Будет вывод только если флаг препроцессора -DDEBUG_VALUES
     A.printValues();
     B.printValues();
-#endif
 
     // Вывести кол-во элементов матрицы A больше чем D
     // Вывести кол-во элементов матрицы B больше чем Q

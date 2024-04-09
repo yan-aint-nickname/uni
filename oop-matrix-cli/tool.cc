@@ -2,9 +2,8 @@
 #include <cstdlib>
 #include <iostream>
 
-#ifdef DEBUG_VALUES
 void BaseMatrix::printValues() {
-
+#ifdef DEBUG_VALUES
     std::cout << std::endl;
     for (const auto &row : values) {
         for (int element : row) {
@@ -13,13 +12,13 @@ void BaseMatrix::printValues() {
         std::cout << std::endl;
     }
     std::cout << std::endl;
-}
 #endif
+}
 
 void RandomMatrix::fillWithValues(int maxValue = 10) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
-            // Случайные числа между 0 и maxValue
+            // Случайные числа между 0 и maxValue включительно
             values[i][j] = std::rand() % maxValue + 1;
         }
     }
@@ -28,8 +27,9 @@ void RandomMatrix::fillWithValues(int maxValue = 10) {
 int BaseMatrix::countGreaterThan(int value) {
     int count = 0;
     for (const auto &row : values) {
-		int counted = std::count_if (row.begin(), row.end(), [value](int elem) { return elem > value; });
-		count += counted;
+        int counted = std::count_if(row.begin(), row.end(),
+                                    [value](int elem) { return elem > value; });
+        count += counted;
     }
     return count;
 }
