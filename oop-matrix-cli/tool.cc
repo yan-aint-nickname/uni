@@ -28,11 +28,8 @@ void RandomMatrix::fillWithValues(int maxValue = 10) {
 int BaseMatrix::countGreaterThan(int value) {
     int count = 0;
     for (const auto &row : values) {
-        for (int element : row) {
-            if (element > value) {
-                count++;
-            }
-        }
+		int counted = std::count_if (row.begin(), row.end(), [value](int elem) { return elem > value; });
+		count += counted;
     }
     return count;
 }

@@ -11,7 +11,7 @@ int main() {
     RandomMatrix A(5, 8);
     RandomMatrix B(7, 5);
 
-	ConsoleUserInput consoleUserInput;
+    ConsoleUserInput consoleUserInput;
 
     // Получить пользовательский ввод D и Q
     int D, Q, maxValue;
@@ -32,7 +32,6 @@ int main() {
     int countB = B.countGreaterThan(Q);
 
     // Флаг препроцессора -DDEBUG_VALUES
-	// FIX: Не работает с флагом компилятора
 #ifdef DEBUG_VALUES
     A.printValues();
     B.printValues();
