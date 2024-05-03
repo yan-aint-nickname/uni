@@ -7,7 +7,7 @@ void Matrix::fillWithValues(int maxValue = 10) {
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
             // Случайные числа между 0 и maxValue включительно
-            values[i][j] = std::rand() % maxValue + 1;
+            values[i][j] = std::rand() % (maxValue + 1);
         }
     }
 }
@@ -15,19 +15,24 @@ void Matrix::fillWithValues(int maxValue = 10) {
 void Vector::fillWithValues(int maxValue = 10) {
     for (auto &value : *this) {
         // Случайные числа между 0 и maxValue включительно
-        value = std::rand() % maxValue + 1;
+        value = std::rand() % (maxValue + 1);
     }
 }
 
-std::optional<Vector> operator*(const Matrix &m, const Vector &v) {
-    if (m.columns != v.size()) {
+std::optional<Vector> operator*(const Matrix &m,
+                                std::optional<const Vector> &v) {
+    if (!v.has_value()) {
+        return std::nullopt;
+    }
+    Vector vv = v.value();
+    if (m.columns != vv.size()) {
         return std::nullopt;
     }
 
     Vector res(m.rows);
     for (int i = 0; i < m.rows; i++) {
-        for (int j = 0; j < v.size(); j++) {
-            res[i] += m.values[i][j] * v[j];
+        for (int j = 0; j < m.columns; j++) {
+            res[i] += m.values[i][j] * vv[j];
         }
     }
     return res;

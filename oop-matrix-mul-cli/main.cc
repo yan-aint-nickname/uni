@@ -4,7 +4,7 @@
 
 int main() {
     // Инициализировать генератор псевдо-случайных чисел
-    std::srand(static_cast<unsigned>(time(0)));
+    std::srand(static_cast<unsigned>(time(nullptr)));
 
     UserInput UserInput;
 
@@ -26,15 +26,15 @@ int main() {
     B.fillWithValues(maxValue);
 
     // Вывод матриц для отладки
-	std::cout << "Матрица:" << std::endl;
+    std::cout << "Матрица:" << std::endl;
     std::cout << A << std::endl;
-	std::cout << "Вектор:" << std::endl;
+    std::cout << "Вектор:" << std::endl;
     std::cout << B << std::endl;
 
     std::optional<Vector> C = A * B;
 
     if (C.has_value()) {
-		std::cout << "Результат перемножения:" << std::endl;
+        std::cout << "Результат перемножения:" << std::endl;
         std::cout << C.value() << std::endl;
     } else {
         std::cout << "Кол-во столбцов матрицы должны совпадать с кол-вом "
