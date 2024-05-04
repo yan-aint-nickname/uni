@@ -85,7 +85,7 @@ UTEST(MatrixVectorMul, MultipicationDefined) {
     ASSERT_EQ(R.values[1], 11);
 }
 
-UTEST(MatrixVectorVectorMul, MultipicationDefined) {
+UTEST(MatrixMatrixVectorMul, MultipicationDefined) {
     int r = 2, c = 2;
     Matrix X(r, r);
     Matrix Y(r, c);
@@ -127,7 +127,7 @@ UTEST(MatrixVectorVectorMul, MultipicationDefined) {
     ASSERT_EQ(XYZ.value().values[1], 59);
 }
 
-UTEST(MatrixVectorVectorMul, MultipicationDefinedSizeError) {
+UTEST(MatrixMatrixVectorMul, MultipicationDefinedSizeError) {
     int r = 2, c = 3;
     Matrix X(r, c);
     Matrix Y(r, c);
