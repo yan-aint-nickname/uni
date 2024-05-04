@@ -23,13 +23,13 @@ class Matrix {
     // Метод для скалярного произведения матрциы на вектор
     friend std::optional<Vector> operator*(const Matrix &m,
                                            const std::optional<Vector> &optV);
+    // Перегрузка оператора умножения
     friend std::optional<Vector> operator*(const Matrix &m, const Vector &v);
 
     // Метод для вывода матрицы в консоль
     friend std::ostream &operator<<(std::ostream &stream, const Matrix &m);
 };
 
-// Наследование от класса std::vector с типом данных int
 class Vector {
     // Конструктор вектора
   public:
@@ -48,5 +48,5 @@ class Vector {
 class UserInput {
   public:
     // Метод для получения данных от пользователя возвращает 1 если ошибка
-    int Get(int &rowsAmount, int &columnsAmount, int &maxValue);
+    static int Get(int &rowsAmount, int &columnsAmount, int &maxValue);
 };
