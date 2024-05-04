@@ -6,11 +6,13 @@ int main() {
     // Инициализировать генератор псевдо-случайных чисел
     std::srand(static_cast<unsigned>(time(nullptr)));
 
-    UserInput UserInput;
-
-    // Получить пользовательский ввод maxValue
+    // Получить пользовательский ввод кол-во строк, столбцов, максимального
+    // значения матрицы
+    // Я не запрашиваю отдельно кол-во элементов вектора, чтобы
+    // у вымышленного оператора не было возможности сделать умножение с ошибкой
+    // Но обработку ошибки я сохранил см. строку №42
     int rowsAmount, columnsAmount, maxValue;
-    int err = UserInput.Get(rowsAmount, columnsAmount, maxValue);
+    int err = UserInput::Get(rowsAmount, columnsAmount, maxValue);
 
     // Завершить программу, если пользователь ввел некорректные данные
     if (err != 0) {

@@ -23,29 +23,29 @@
 
 == Комментарии
 
-- Полный код программы находится в репозитории https://github.com/yan-aint-nickname/uni
+- Полный код программы находится в репозитории https://github.com/yan-aint-nickname/uni см.директорию: `oop-matrix-mul-cli`
 
-- Для компиляции я использовал https://ziglang.org/ 
+- Для компиляции я использовал https://ziglang.org/
 - Библиотека для тестирования https://github.com/sheredom/utest.h/
 
 - Для дальнейшей работы мне необходимо сделать допущение для векторов, столбцовых и строковых матриц:
 
 / $n$ : - кол-во строк/столбцов вектора
-$ZZ^n tilde.equiv ZZ^(n times 1) tilde.equiv ZZ^(1 times n)$\ 
+$ZZ^n tilde.equiv ZZ^(n times 1) tilde.equiv ZZ^(1 times n)$\
 
 Алгоритм перемножения матрицы на вектор:
 $
 mat(
-  a_(0, 0), a_(0, 1), ..., a_(0, n);
-  a_(1, 0), a_(1, 1), ..., a_(1, n);
+  a_(0 0), a_(0 1), ..., a_(0 n);
+  a_(1 0), a_(1 1), ..., a_(1 n);
   dots.v, dots.v, dots.down, dots.v;
-  a_(m, 0), a_(m, 1), ..., a_(m, n);
+  a_(m 0), a_(m 1), ..., a_(m n);
 ) times vec(b_0, b_1, dots.v, b_n) = vec(
-  c_0 = a_(0, 0) times b_0 + a_(0, 1) times b_1 + ... + a_(0, n) times b_n,
-  c_1 = a_(1, 0) times b_0 + a_(1, 1) times b_1 + ... + a_(1, n) times b_n,
+  c_0 = a_(0 0) dot.op b_0 + a_(0 1) dot.op b_1 + ... + a_(0 n) dot.op b_n,
+  c_1 = a_(1 0) dot.op b_0 + a_(1 1) dot.op b_1 + ... + a_(1 n) dot.op b_n,
   dots.v,
-  c_n = a_(m, 0) times b_0 + a_(m, 1) times b_1 + ... + a_(m, n) times b_n)\
-  c_k = sum^n_(k=0)a_(i k)b_k
+  c_n = a_(m 0) dot.op b_0 + a_(m 1) dot.op b_1 + ... + a_(m n) dot.op b_n)\
+  c_i = sum^n_(k=0)a_(i k)b_k
 $
 
 
@@ -91,24 +91,4 @@ $
 )
 
 #pagebreak()
-== Блок-схемы
-
-#figure(
-  main_algo.chart_main,
-  caption: "Схема работы всей программы",
-)
-
-#figure(
-  input_algo.user_input,
-  caption: "Схема работы программы для получения пользовательского ввода",
-)
-
-#figure(
-  fill_algo.fill_matrix,
-  caption: "Схема работы программы для заполнения матрицы",
-)
-
-#figure(
-  count_algo.count_values,
-  caption: "Схема работы программы для подсчета элементов больше заданных значений",
-)
+== Ответы на вопросы
