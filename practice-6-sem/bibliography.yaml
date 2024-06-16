@@ -1,0 +1,14 @@
+json-official:
+    type: Web
+    title: Introduction JSON
+    url: https://www.json.org/json-en.html
+
+golang-official:
+    type: Web
+    title: Golang
+    url: https://go.dev/
+
+curl-official:
+    type: Web
+    title: Curl
+    url: https://curl.se/download.html

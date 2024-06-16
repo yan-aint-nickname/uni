@@ -6,6 +6,7 @@ import (
 	"time"
 	"log"
 	"encoding/json"
+	"encoding/xml"
 )
 
 type HelloHandler struct {
@@ -32,7 +33,7 @@ func main() {
 
 	helloHandler := HelloHandler{
 		Path: "/hello",
-		HandlerFunc: helloHandlerFunc,
+		HandlerFunc: handlerFuncHello,
 		Method: "GET",
 	}
 	SetupHandlers(router, helloHandler)
@@ -43,16 +44,40 @@ func main() {
 	}
 }
 
+type Greeting struct {
+	To string `xml:"to,attr" json:"to"`
+}
+
+type GreetingResp struct {
+	Greeting Greeting `xml:"greeting" json:"greeting"`
+}
+
 func ServerMuxDep() *http.ServeMux {
 	return http.NewServeMux()
 }
 
-func helloHandlerFunc(w http.ResponseWriter, r *http.Request) {
+func handlerFuncHello(w http.ResponseWriter, r *http.Request) {
 	log.Print("helloHandlerFunc GET")
-	w.Header().Set("Content-Type", "application/json")
-	v := r.URL.Query().Get("v")
-	res, _ := json.Marshal(fmt.Sprintf("{'data': 'Hello %s'}", v))
-	_, _ = w.Write(res)
+
+	v := r.URL.Query().Get("value")
+	t := r.URL.Query().Get("type")
+
+	greeting := GreetingResp{
+		Greeting: Greeting{To: fmt.Sprintf("Hello %s", v)},
+	}
+
+	switch t {
+	case "json":
+		w.Header().Set("Content-Type", "application/json")
+		res, _ := json.Marshal(greeting)
+		_, _ = w.Write(res)
+	case "xml":
+		w.Header().Set("Content-Type", "application/xml")
+		res, _ := xml.Marshal(greeting)
+		_, _ = w.Write(res)
+	default:
+		http.Error(w, "Not a valid format", http.StatusBadRequest)
+	}
 }
 
 func SetupHandlers(router *http.ServeMux, handlers ...Handler) {
