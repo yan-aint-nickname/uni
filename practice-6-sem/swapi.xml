@@ -1,0 +1,197 @@
+<count>82</count>
+<next>https://swapi.dev/api/people/?page=2</next>
+<previous>null</previous>
+<results>
+  <name>Luke Skywalker</name>
+  <height>172</height>
+  <mass>77</mass>
+  <hair_color>blond</hair_color>
+  <skin_color>fair</skin_color>
+  <eye_color>blue</eye_color>
+  <birth_year>19BBY</birth_year>
+  <gender>male</gender>
+  <homeworld>https://swapi.dev/api/planets/1/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/2/</films>
+  <films>https://swapi.dev/api/films/3/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <vehicles>https://swapi.dev/api/vehicles/14/</vehicles>
+  <vehicles>https://swapi.dev/api/vehicles/30/</vehicles>
+  <starships>https://swapi.dev/api/starships/12/</starships>
+  <starships>https://swapi.dev/api/starships/22/</starships>
+  <created>2014-12-09T13:50:51.644000Z</created>
+  <edited>2014-12-20T21:17:56.891000Z</edited>
+  <url>https://swapi.dev/api/people/1/</url>
+</results>
+<results>
+  <name>C-3PO</name>
+  <height>167</height>
+  <mass>75</mass>
+  <hair_color>n/a</hair_color>
+  <skin_color>gold</skin_color>
+  <eye_color>yellow</eye_color>
+  <birth_year>112BBY</birth_year>
+  <gender>n/a</gender>
+  <homeworld>https://swapi.dev/api/planets/1/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/2/</films>
+  <films>https://swapi.dev/api/films/3/</films>
+  <films>https://swapi.dev/api/films/4/</films>
+  <films>https://swapi.dev/api/films/5/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <species>https://swapi.dev/api/species/2/</species>
+  <created>2014-12-10T15:10:51.357000Z</created>
+  <edited>2014-12-20T21:17:50.309000Z</edited>
+  <url>https://swapi.dev/api/people/2/</url>
+</results>
+<results>
+  <name>R2-D2</name>
+  <height>96</height>
+  <mass>32</mass>
+  <hair_color>n/a</hair_color>
+  <skin_color>white, blue</skin_color>
+  <eye_color>red</eye_color>
+  <birth_year>33BBY</birth_year>
+  <gender>n/a</gender>
+  <homeworld>https://swapi.dev/api/planets/8/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/2/</films>
+  <films>https://swapi.dev/api/films/3/</films>
+  <films>https://swapi.dev/api/films/4/</films>
+  <films>https://swapi.dev/api/films/5/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <species>https://swapi.dev/api/species/2/</species>
+  <created>2014-12-10T15:11:50.376000Z</created>
+  <edited>2014-12-20T21:17:50.311000Z</edited>
+  <url>https://swapi.dev/api/people/3/</url>
+</results>
+<results>
+  <name>Darth Vader</name>
+  <height>202</height>
+  <mass>136</mass>
+  <hair_color>none</hair_color>
+  <skin_color>white</skin_color>
+  <eye_color>yellow</eye_color>
+  <birth_year>41.9BBY</birth_year>
+  <gender>male</gender>
+  <homeworld>https://swapi.dev/api/planets/1/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/2/</films>
+  <films>https://swapi.dev/api/films/3/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <starships>https://swapi.dev/api/starships/13/</starships>
+  <created>2014-12-10T15:18:20.704000Z</created>
+  <edited>2014-12-20T21:17:50.313000Z</edited>
+  <url>https://swapi.dev/api/people/4/</url>
+</results>
+<results>
+  <name>Leia Organa</name>
+  <height>150</height>
+  <mass>49</mass>
+  <hair_color>brown</hair_color>
+  <skin_color>light</skin_color>
+  <eye_color>brown</eye_color>
+  <birth_year>19BBY</birth_year>
+  <gender>female</gender>
+  <homeworld>https://swapi.dev/api/planets/2/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/2/</films>
+  <films>https://swapi.dev/api/films/3/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <vehicles>https://swapi.dev/api/vehicles/30/</vehicles>
+  <created>2014-12-10T15:20:09.791000Z</created>
+  <edited>2014-12-20T21:17:50.315000Z</edited>
+  <url>https://swapi.dev/api/people/5/</url>
+</results>
+<results>
+  <name>Owen Lars</name>
+  <height>178</height>
+  <mass>120</mass>
+  <hair_color>brown, grey</hair_color>
+  <skin_color>light</skin_color>
+  <eye_color>blue</eye_color>
+  <birth_year>52BBY</birth_year>
+  <gender>male</gender>
+  <homeworld>https://swapi.dev/api/planets/1/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/5/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <created>2014-12-10T15:52:14.024000Z</created>
+  <edited>2014-12-20T21:17:50.317000Z</edited>
+  <url>https://swapi.dev/api/people/6/</url>
+</results>
+<results>
+  <name>Beru Whitesun lars</name>
+  <height>165</height>
+  <mass>75</mass>
+  <hair_color>brown</hair_color>
+  <skin_color>light</skin_color>
+  <eye_color>blue</eye_color>
+  <birth_year>47BBY</birth_year>
+  <gender>female</gender>
+  <homeworld>https://swapi.dev/api/planets/1/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/5/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <created>2014-12-10T15:53:41.121000Z</created>
+  <edited>2014-12-20T21:17:50.319000Z</edited>
+  <url>https://swapi.dev/api/people/7/</url>
+</results>
+<results>
+  <name>R5-D4</name>
+  <height>97</height>
+  <mass>32</mass>
+  <hair_color>n/a</hair_color>
+  <skin_color>white, red</skin_color>
+  <eye_color>red</eye_color>
+  <birth_year>unknown</birth_year>
+  <gender>n/a</gender>
+  <homeworld>https://swapi.dev/api/planets/1/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <species>https://swapi.dev/api/species/2/</species>
+  <created>2014-12-10T15:57:50.959000Z</created>
+  <edited>2014-12-20T21:17:50.321000Z</edited>
+  <url>https://swapi.dev/api/people/8/</url>
+</results>
+<results>
+  <name>Biggs Darklighter</name>
+  <height>183</height>
+  <mass>84</mass>
+  <hair_color>black</hair_color>
+  <skin_color>light</skin_color>
+  <eye_color>brown</eye_color>
+  <birth_year>24BBY</birth_year>
+  <gender>male</gender>
+  <homeworld>https://swapi.dev/api/planets/1/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <starships>https://swapi.dev/api/starships/12/</starships>
+  <created>2014-12-10T15:59:50.509000Z</created>
+  <edited>2014-12-20T21:17:50.323000Z</edited>
+  <url>https://swapi.dev/api/people/9/</url>
+</results>
+<results>
+  <name>Obi-Wan Kenobi</name>
+  <height>182</height>
+  <mass>77</mass>
+  <hair_color>auburn, white</hair_color>
+  <skin_color>fair</skin_color>
+  <eye_color>blue-gray</eye_color>
+  <birth_year>57BBY</birth_year>
+  <gender>male</gender>
+  <homeworld>https://swapi.dev/api/planets/20/</homeworld>
+  <films>https://swapi.dev/api/films/1/</films>
+  <films>https://swapi.dev/api/films/2/</films>
+  <films>https://swapi.dev/api/films/3/</films>
+  <films>https://swapi.dev/api/films/4/</films>
+  <films>https://swapi.dev/api/films/5/</films>
+  <films>https://swapi.dev/api/films/6/</films>
+  <vehicles>https://swapi.dev/api/vehicles/38/</vehicles>
+  <starships>https://swapi.dev/api/starships/48/</starships>
+  <starships>https://swapi.dev/api/starships/59/</starships>
+  <starships>https://swapi.dev/api/starships/64/</starships>
+  <starships>https://swapi.dev/api/starships/65/</starships>
+  <starships>https://swapi.dev/api/starships/74/</starships>
+  <created>2014-12-10T16:16:29.192000Z</created>
+  <edited>2014-12-20T21:17:50.325000Z</edited>
+  <url>https://swapi.dev/api/people/10/</url>
+</results>

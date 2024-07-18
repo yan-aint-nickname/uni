@@ -12,3 +12,53 @@ curl-official:
     type: Web
     title: Curl
     url: https://curl.se/download.html
+
+lazygit-repo:
+    type: Web
+    title: Lazygit
+    url: https://github.com/jesseduffield/lazygit/
+
+csv-rfc:
+    type: Web
+    title: CSV-RFC
+    url: https://www.rfc-editor.org/rfc/rfc4180
+
+delim-collision:
+    type: Web
+    title: Delimiter Collision
+    url: https://en.wikipedia.org/wiki/Delimiter#Delimiter_collision
+
+pokemon-api:
+    type: Web
+    title: Pokemon API
+    url: https://pokeapi.co/
+
+bson-in-mongodb:
+    type: Web
+    title: Explaining BSON with examples
+    url: https://www.mongodb.com/resources/languages/bson
+
+bson-spec:
+    type: Web
+    title: BSON specification
+    url: https://bsonspec.org/
+
+pip-pyproject-toml:
+    type: Web
+    title: pip pyproject.toml
+    url: https://github.com/pypa/pip/blob/main/pyproject.toml
+
+swapi-web:
+    type: Web
+    title: swapi.dev
+    url: https://swapi.dev/
+
+yq-website:
+    type: Web
+    title: yq tool website
+    url: https://mikefarah.gitbook.io/yqi
+
+protobuf-website:
+    type: Web
+    title: protobuf website
+    url: https://protobuf.dev/overview/
