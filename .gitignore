@@ -37,6 +37,10 @@
 # js
 *node_modules*
 
+# parcel
+*parcel*
+dist/
+
 # golang
 # Binaries for programs and plugins
 *.exe
