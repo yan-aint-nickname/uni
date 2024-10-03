@@ -57,4 +57,4 @@ $ M = #matrix $
 $ M_("остов") = #skeleton_matrix $
 
 На википедии наглядно показано как работает алгоритм.#footnote("https://ru.wikipedia.org/wiki/Алгоритм_Прима")
-Полный код работы содержится в репозитории.#footnote("https://ru.wikipedia.org/wiki/Алгоритм_Прима")
+Полный код работы содержится в репозитории.#footnote("https://github.com/yan-aint-nickname/uni/tree/main/computer-networks/cm1")
