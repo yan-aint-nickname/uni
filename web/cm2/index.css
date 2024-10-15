@@ -1,0 +1,71 @@
+/* Применение стилей текста для всего контента в теге `body` в html-файле*/
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  color: #2E3532; /* Здесь можно поменять цвет текста */
+  font-size: 1em; /* Здесь можно поменять размер текста */
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0.5em;
+}
+
+th, td {
+  padding: 0.75em;
+  border: 1pt solid black;
+  border-radius: 0.5em
+}
+
+/*
+* Чтобы стиль текста в кнопка и прочих элементах совпадал с основым текстом формы
+* Наследует стиль шрифта и его размер
+* */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input[type=submit], input[type=reset] {
+  cursor: pointer; /* Курсор в виде руки */
+  border: 1pt solid black;
+  border-radius: 0.25em
+}
+
+input[type=submit] {
+  background: #e6ffe6;
+}
+
+input[type=reset] {
+  background: #faebeb;
+}
+
+input[type=file] {
+  display: flex;
+}
+
+input[type=file]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input[type=file]::before {
+  content: 'Выбрать файл';
+  border: 1pt solid #999;
+  border-radius: 0.25em;
+  padding: 5pt;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+input[type=file]::file-selector-button {
+  cursor: pointer;
+}
+
+input[type=file]:hover::before {
+  border-color: black;
+}
+
+input[type=file]:after {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
