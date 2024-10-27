@@ -1,0 +1,19 @@
+ruby-official:
+    type: Web
+    title: Ruby
+    url: https://www.ruby-lang.org/en/
+
+docker-official:
+    type: Web
+    title: Docker
+    url: https://www.docker.com/
+
+faker-official:
+    type: Web
+    title: Faker
+    url: https://github.com/faker-ruby/faker
+
+uni-repo:
+    type: Web
+    title: Репозиторий
+    url: https://github.com/faker-ruby/faker
