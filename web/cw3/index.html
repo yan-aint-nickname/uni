@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="index.js" module defer></script>
+  </head>
+  <body>
+    <h1>Поступление в ВУЗ</h1>
+    <form
+      method="POST"
+      id="data-form"
+      target="_blank"
+      action="https://vmss.mpei.ru/vvk/test_control.php"
+    >
+      <table>
+        <tr>
+          <td class="top-left-corner" rowspan="2" align="right">
+            <label class="large-label" for="lname">Фамилия:</label>
+            <input
+              type="text"
+              id="lname"
+              name="lname"
+              value=""
+              placeholder="Иванов"
+            /><br />
+            <label for="fname">Имя:</label>
+            <input
+              type="text"
+              id="fname"
+              name="fname"
+              value=""
+              placeholder="Иван"
+            /><br />
+            <label for="patronimic">Отчество:</label>
+            <input
+              type="text"
+              id="patronimic"
+              name="patronimic"
+              value=""
+              placeholder="Иванович"
+            />
+            <br />
+          </td>
+          <td>
+            <label for="date">Дата окончания школы</label>
+            <input
+              id="date"
+              type="text"
+              name="graduationDate"
+              placeholder="2018-08-12"
+              value=""
+            />
+            <br />
+            <br />
+
+            <label for="tel">Телефон</label>
+            <input
+              type="text"
+              name="tel"
+              placeholder="+7 XXX-XXX-XX-XX"
+              id="tel"
+            />
+            <br />
+
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              type="text"
+              name="email"
+              value=""
+              placeholder="example@domain.com"
+              autocomplete="email"
+            />
+
+            <br />
+          </td>
+          <td class="top-right-corner" rowspan="2">
+            <label for="educational-program">Программа обучения</label
+            ><br /><br />
+
+            <label for="educational-program-bachelor">Бакалавриат</label>
+            <input
+              id="educational-program-bachelor"
+              type="radio"
+              name="bachelor"
+              value=""
+            /><br />
+            <label for="educational-program-master">Магистратура</label>
+            <input
+              id="educational-program-master"
+              type="radio"
+              name="master"
+              value=""
+            /><br />
+            <label for="educational-program-speciality">Специалитет</label>
+            <input
+              id="educational-program-speciality"
+              type="radio"
+              name="major"
+              value=""
+            /><br />
+            <label for="educational-program-phd">Аспирантура</label>
+            <input
+              id="educational-program-phd"
+              type="radio"
+              name="phd"
+              value=""
+            /><br />
+            <br />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="points">Количество баллов</label><br />
+            <input id="points" type="text" name="points" value="0" />
+          </td>
+        </tr>
+        <tr>
+          <td rowspan="2">
+            <label for="diploma" class="custom-file-upload"
+              >Загрузить аттестат</label
+            ><br />
+            <input id="diploma" type="file" name="diploma" value="" />
+            <br />
+          </td>
+          <td align="center">
+            <label for="uni">ВУЗ</label><br />
+            <select id="uni" type="select" name="uni" value="">
+              <option>МЭИ</option>
+              <option>МГТУ им. Баумана</option>
+              <option>МАИ</option>
+              <option>МИФИ</option>
+              <option>МФТИ</option>
+            </select>
+            <br />
+          </td>
+
+          <td rowspan="2" align="center">
+            <label for="additional-points">Дополнительные баллы:</label>
+            <br /><br />
+
+            <label for="red-diploma">Красный аттестат</label>
+            <input
+              id="red-diploma"
+              type="checkbox"
+              name="red_diploma"
+              value=""
+            /><br />
+
+            <label for="reporting-for-duty">ГТО</label>
+            <input
+              id="reporting-for-duty"
+              type="checkbox"
+              name="reporting_for_duty"
+              value=""
+            /><br />
+
+            <label for="olimpiad">Олимпиада</label>
+            <input
+              id="olimpiad"
+              type="checkbox"
+              name="olimpiad"
+              value=""
+            /><br />
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            <label for="coliving">Общежитие:</label>
+            <input id="coliving" type="checkbox" name="coliving" value="" />
+            <br />
+          </td>
+        </tr>
+
+        <tr>
+          <td
+            class="bottom-left-corner bottom-right-corner"
+            colspan="3"
+            align="center"
+          >
+            <input type="submit" value="Отправить" />
+            <input type="reset" value="Сбросить" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

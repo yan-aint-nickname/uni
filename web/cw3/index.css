@@ -1,0 +1,134 @@
+.error-list {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c2c7;
+  color: #842029;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.error-list.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.error-list ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.error-list li {
+  margin: 0.25rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+input.error {
+  border-color: #dc3545 !important;
+}
+
+button[type="submit"] {
+  padding: 0.5rem 1rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0b5ed7;
+}
+/* Применение стилей текста для всего контента в теге `body` в html-файле*/
+body {
+  font-family: "Trebuchet MS", sans-serif;
+  color: #2e3532; /* Здесь можно поменять цвет текста */
+  font-size: 1em; /* Здесь можно поменять размер текста */
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0.5em;
+}
+
+th,
+td {
+  padding: 0.75em;
+  border: 1pt solid black;
+  border-radius: 0.5em;
+}
+
+/*
+* Чтобы стиль текста в кнопка и прочих элементах совпадал с основым текстом формы
+* Наследует стиль шрифта и его размер
+* */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer; /* Курсор в виде руки */
+  border: 1pt solid black;
+  border-radius: 0.25em;
+}
+
+input[type="submit"] {
+  background: #e6ffe6;
+}
+
+input[type="reset"] {
+  background: #faebeb;
+}
+
+input[type="file"] {
+  display: flex;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+input[type="file"]::before {
+  content: "Выбрать файл";
+  border: 1pt solid #999;
+  border-radius: 0.25em;
+  padding: 5pt;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+input[type="file"]::file-selector-button {
+  cursor: pointer;
+}
+
+input[type="file"]:hover::before {
+  border-color: black;
+}
+
+input[type="file"]:after {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
