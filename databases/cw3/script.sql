@@ -382,7 +382,7 @@ WHERE
         'cancelled_by_student', 'pay_error'
 );
 
--- Выведеем все записи из представления 'pay_error_students'
+-- Выведем все записи из представления 'pay_error_students'
 select * from pay_error_students;
 
 -- Изменим представление 'pay_error_students' - добавим номер телефона
