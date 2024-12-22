@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>4</title>
+  </head>
+  <body onload="design()">
+    <div>
+      <p>X: <input type="number" id="xValue" value="0" onchange="design()"></p>
+      <p>Y: <input type="number" id="yValue" value="0" onchange="design()"></p>
+    </div>
+    <canvas id="electricalCircuit" width="500" height="500"></canvas>
+
+    <script>
+      function design() {
+        let x0 = Number(document.getElementById("xValue").value);
+        let y0 = Number(document.getElementById("yValue").value);
+        let x = x0 + 30, y = y0 + 40;
+
+        /** @type {HTMLCanvasElement} */
+        const canvas = document.getElementById("electricalCircuit");
+        /** @type {CanvasRenderingContext2D} */
+        const context = canvas.getContext("2d");
+
+        canvas.width = 500;
+        canvas.height = 400;
+
+        context.fillStyle = "#dadada";
+        context.beginPath();
+        context.rect(0, 0, canvas.width, canvas.height);
+        context.fill();
+
+        context.lineWidth = 1.5;
+        context.strokeStyle = "#000000";
+        context.fillStyle = "#000000";
+
+        /**
+         * Контур
+         */
+        class ElectricalLoop {
+          constructor(context, x, y) {
+            this.context = context;
+            this.x = x;
+            this.y = y;
+          }
+          draw() {
+            this.context.beginPath();
+            this.context.moveTo(this.x, this.y);
+            this.context.lineTo(this.x, this.y + 138);
+            this.context.lineTo(this.x + 230, this.y + 138);
+            this.context.lineTo(this.x + 230, this.y + 115);
+            this.context.moveTo(this.x + 230, this.y + 106);
+            this.context.lineTo(this.x + 230, this.y);
+            this.context.lineTo(this.x + 192, this.y);
+            this.context.moveTo(this.x + 160, this.y);
+            this.context.lineTo(this.x, this.y);
+            this.context.moveTo(this.x + 116, this.y);
+            this.context.lineTo(this.x + 116, this.y + 76);
+            this.context.moveTo(this.x + 116, this.y + 86);
+            this.context.lineTo(this.x + 116, this.y + 138);
+            this.context.stroke();
+          }
+        }
+
+        class EMF {
+          /**
+           * @param {CanvasRenderingContext2D} context
+           * @param {number} x
+           * @param {number} y
+           */
+          constructor(context, x, y) {
+            this.context = context;
+            this.x = x + 50;
+            this.y = y + 20;
+            this.x_arrow = this.x - 50;
+            this.y_arrow = this.y + 68;
+            this.y_circle = this.y + 80;
+          }
+          draw() {
+            this.#drawCircle();
+            this.#drawArrow();
+            this.#drawLegend();
+          }
+          #drawLegend() {
+            this.context.font = "18px Monaco";
+            this.context.fillText("e(t)", this.x - 25, this.y + 82);
+          }
+          #drawArrow() {
+            this.context.beginPath();
+            this.context.moveTo(this.x_arrow, this.y_arrow);
+            this.context.lineTo(this.x_arrow - 4, this.y_arrow + 10);
+            this.context.lineTo(this.x_arrow + 4, this.y_arrow + 10);
+            this.context.fill();
+            this.context.closePath();
+            this.context.stroke();
+          }
+          #drawCircle() {
+            this.context.beginPath();
+            this.context.arc(x, this.y_circle, 18, 0, 2 * Math.PI);
+            this.context.stroke();
+          }
+        }
+        class Inductor {
+          /**
+           * @param {CanvasRenderingContext2D} context
+           * @param {number} x
+           * @param {number} y
+           */
+          constructor(context, x, y) {
+            this.context = context;
+            this.x = x;
+            this.y = y;
+          }
+          draw() {
+            this.#drawArcs();
+            this.#drawLegend();
+          }
+          #drawArcs() {
+            this.context.fillStyle = "#dadada";
+            this.context.beginPath();
+            this.context.arc(this.x + 45, this.y - 1, 9, Math.PI, 0);
+            this.context.arc(this.x + 63, this.y - 1, 9, Math.PI, 0);
+            this.context.arc(this.x + 81, this.y - 1, 9, Math.PI, 0);
+            this.context.fill();
+            this.context.stroke();
+          }
+          #drawLegend() {
+            this.context.fillStyle = "#000000";
+            this.context.font = "18px Monaco";
+            this.context.fillText("L", this.x + 61, this.y - 17);
+          }
+        }
+
+        class Resistor {
+          /**
+           * @param {CanvasRenderingContext2D} context
+           * @param {number} x
+           * @param {number} y
+           */
+          constructor(context, x, y) {
+            this.context = context;
+            this.x = x;
+            this.y = y;
+          }
+          draw() {
+            this.#drawRectangle()
+            this.#drawLegend()
+          }
+          #drawLegend() {
+            this.context.fillStyle = "#000000";
+            this.context.font = "18px Monaco";
+            this.context.fillText("R", this.x + 15, this.y + 45);
+          }
+          #drawRectangle() {
+            this.context.fillStyle = "#dadada";
+            this.context.beginPath();
+            this.context.rect(this.x - 8, this.y + 20, 16, 36);
+            this.context.fill();
+            this.context.stroke();
+          }
+        }
+        class CurrentDirection {
+          /**
+           * @param {CanvasRenderingContext2D} context
+           * @param {number} x
+           * @param {number} y
+           */
+          constructor(context, x, y) {
+            this.context = context;
+            this.x = x;
+            this.y = y;
+          }
+          draw() {
+            this.#drawArrow()
+            this.#drawLegend()
+          }
+          #drawArrow() {
+            this.context.beginPath();
+            this.context.moveTo(this.x + 116, this.y + 30);
+            this.context.lineTo(this.x + 112, this.y + 22);
+            this.context.lineTo(this.x + 120, this.y + 22);
+            this.context.fill();
+            this.context.closePath();
+            this.context.stroke();
+          }
+          #drawLegend() {
+            this.context.fillStyle = "#000000";
+            this.context.font = "18px Monaco";
+            this.context.fillText("i", this.x + 130, this.y + 34);
+            this.context.font = "12px Monaco";
+            this.context.fillText("3", this.x + 140, this.y + 40);
+          }
+        }
+        class Capacitor {
+          /**
+           * @param {CanvasRenderingContext2D} context
+           * @param {number} x
+           * @param {number} y
+           */
+          constructor(context, x, y) {
+            this.context = context;
+            this.x = x;
+            this.y = y;
+          }
+
+          draw() {
+            this.#drawPlates();
+            this.#drawLegend();
+          }
+
+          #drawPlates() {
+            this.context.beginPath();
+            this.context.moveTo(this.x + 100, this.y + 76);
+            this.context.lineTo(this.x + 131, this.y + 76);
+            this.context.moveTo(this.x + 100, this.y + 85);
+            this.context.lineTo(this.x + 131, this.y + 85);
+            this.context.stroke();
+          }
+
+          #drawLegend() {
+            this.context.fillStyle = "#000000";
+            this.context.font = "18px Monaco";
+            this.context.fillText("C", this.x + 130, this.y + 70);
+          }
+        }
+        class Key {
+          /**
+           * @param {CanvasRenderingContext2D} context
+           * @param {number} x
+           * @param {number} y
+           */
+          constructor(context, x, y) {
+            this.context = context;
+            this.x = x;
+            this.y = y;
+          }
+
+          draw() {
+            this.#drawContacts();
+            this.#drawLever();
+            this.#drawArrow();
+          }
+
+          #drawContacts() {
+            this.context.fillStyle = "#dadada";
+            this.context.beginPath();
+            this.context.arc(this.x + 160, this.y, 4, 0, 2 * Math.PI);
+            this.context.fill();
+            this.context.stroke();
+
+            this.context.beginPath();
+            this.context.arc(this.x + 191, this.y, 4, 0, 2 * Math.PI);
+            this.context.fill();
+            this.context.stroke();
+          }
+
+          #drawLever() {
+            this.context.moveTo(this.x + 160, this.y);
+            this.context.lineTo(this.x + 180, this.y - 18);
+            this.context.stroke();
+
+            this.context.beginPath();
+            this.context.moveTo(this.x + 165, this.y - 18);
+            this.context.quadraticCurveTo(this.x + 176, this.y - 15, this.x + 174, this.y + 10);
+            this.context.stroke();
+          }
+
+          #drawArrow() {
+            this.context.fillStyle = "#000000";
+            this.context.beginPath();
+            this.context.moveTo(this.x + 174, this.y + 16);
+            this.context.lineTo(this.x + 170, this.y + 8);
+            this.context.lineTo(this.x + 178, this.y + 8);
+            this.context.fill();
+            this.context.closePath();
+            this.context.stroke();
+          }
+        }
+
+        // Контур
+        const electricalLoop = new ElectricalLoop(context, x, y);
+        electricalLoop.draw();
+
+        // ЭДС
+        const emf = new EMF(context, x, y);
+        emf.draw();
+
+        // Катушка индуктивности
+        const l = new Inductor(context, x, y + 2);
+        l.draw();
+
+        // Резистор слева
+        const r = new Resistor(context, x, y);
+        r.draw()
+
+        // Резистор справа
+        const r2 = new Resistor(context, x + 230, y + 60);
+        r2.draw()
+
+        // i
+        const i = new CurrentDirection(context, x + 114, y)
+        i.draw()
+
+        // C
+        const capacitor = new Capacitor(context, x, y);
+        capacitor.draw()
+
+        // Ключ
+        const key = new Key(context, x, y)
+        key.draw()
+      }
+    </script>
+  </body>
+</html>
