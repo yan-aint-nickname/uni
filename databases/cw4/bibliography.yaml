@@ -1,0 +1,9 @@
+docker-official:
+    type: Web
+    title: Docker
+    url: https://www.docker.com/
+
+uni-db-repo:
+    type: Web
+    title: Репозиторий
+    url: https://github.com/yan-aint-nickname/uni/tree/main/databases/cw4
