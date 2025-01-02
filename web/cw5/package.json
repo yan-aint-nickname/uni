@@ -1,0 +1,21 @@
+{
+  "name": "cw5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "22.12.0",
+    "npm": "10.9.2"
+  },
+  "devDependencies": {
+    "prettier": "3.4.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.6"
+  }
+}

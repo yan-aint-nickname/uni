@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>КМ-5 Перемещение и трансформация объектов с помощью DOM</title>
+    <style>
+      .image {
+        width: 100px;
+        height: 100px;
+        transition: 0.2s;
+      }
+      img {
+        margin: 0.8rem;
+      }
+    </style>
+    <script>
+      function transformImages() {
+        const images = document.querySelectorAll(".image");
+        const imagesObj = {};
+        for (let i of images.values()) {
+          imagesObj[i.id] = i;
+        }
+        // 1. уменьшиться в 0.7 раза при наведении курсора на нее
+        imagesObj["target-circle"].addEventListener(
+          "mouseover",
+          (event) => {
+            event.target.style.transform = "scale(0.7)";
+          },
+          false,
+        );
+        imagesObj["target-circle"].addEventListener(
+          "mouseout",
+          (event) => {
+            event.target.style = "";
+          },
+          false,
+        );
+
+        // 2. при клике изменить масштаб в 1.2 раза
+        imagesObj["cloud"].addEventListener(
+          "click",
+          (event) => {
+            event.target.style.transform = "scale(1.2)";
+          },
+          false,
+        );
+        imagesObj["cloud"].addEventListener(
+          "mouseout",
+          (event) => {
+            event.target.style = "";
+          },
+          false,
+        );
+
+        // 3. при наведении повернуться на 90°
+        imagesObj["soundcloud"].addEventListener(
+          "mouseover",
+          (event) => {
+            event.target.style.transform = "rotate(90deg)";
+          },
+          false,
+        );
+        imagesObj["soundcloud"].addEventListener(
+          "mouseout",
+          (event) => {
+            event.target.style = "";
+          },
+          false,
+        );
+
+        // 4. при наведении на нее картинка номер 1 должна измениться в 0.7 раза
+        imagesObj["mail"].addEventListener(
+          "mouseover",
+          () => {
+            const target_ = imagesObj["target-circle"];
+            target_.style.transform = "scale(0.7)";
+          },
+          false,
+        );
+        imagesObj["mail"].addEventListener(
+          "mouseout",
+          (event) => {
+            const target_ = imagesObj["target-circle"];
+            target_.style = "";
+          },
+          false,
+        );
+
+        // 5. при клике по ней картинка номер 2 должна изменить масштаб в 1.2 раза
+        imagesObj["twitter-bird"].addEventListener(
+          "click",
+          () => {
+            const target_ = imagesObj["cloud"];
+            target_.style.transform = "scale(1.2)";
+          },
+          false,
+        );
+        imagesObj["twitter-bird"].addEventListener(
+          "mouseout",
+          (event) => {
+            const target_ = imagesObj["cloud"];
+            target_.style = "";
+          },
+          false,
+        );
+      }
+    </script>
+  </head>
+  <body onload="transformImages()">
+    <img
+      id="target-circle"
+      class="image"
+      src="assets/icon1.png"
+      alt="icon1.png"
+    />
+    <img id="cloud" class="image" src="assets/icon2.png" alt="icon2.png" />
+    <img id="soundcloud" class="image" src="assets/icon3.png" alt="icon3.png" />
+    <img id="mail" class="image" src="assets/icon4.png" alt="icon4.png" />
+    <img
+      id="twitter-bird"
+      class="image"
+      src="assets/icon5.png"
+      alt="icon5.png"
+    />
+  </body>
+</html>
