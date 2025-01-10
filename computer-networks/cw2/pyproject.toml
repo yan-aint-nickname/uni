@@ -7,7 +7,11 @@ requires-python = ">=3.12"
 dependencies = [
     "jupyterlab>=4.3.4",
     "networkx>=3.4.2",
-    "numpy>=2.2.1",
+    "numpy==2.2.1",
+    "pytest>=8.3.4",
+    "python-graphblas[default,networkx,pandas]>=2023.12.0",
+    "scikit-learn>=1.6.0",
     "scipy>=1.15.0",
     "seaborn>=0.13.2",
+    "umap>=0.1.1",
 ]
