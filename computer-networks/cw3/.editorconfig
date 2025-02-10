@@ -1,0 +1,7 @@
+[*]
+end_of_line = lf
+insert_final_new_line = true
+
+[*.json]
+indent_style = space
+indet_size = 2
