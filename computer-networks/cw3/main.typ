@@ -1,14 +1,10 @@
 #import "template.typ": *
 
-#import "@preview/codelst:2.0.2": sourcecode, sourcefile
 #import "@preview/muchpdf:0.1.0": muchpdf
-#import "@preview/pavemat:0.1.0": pavemat
-#import "@preview/fletcher:0.5.4" as fletcher: diagram, node, edge, shapes
-#import fletcher.shapes: rect
 // Take a look at the file `template.typ` in the file panel
 // to customize this template and discover how it works.
 #show: project.with(
-  title: "Компьютерные сети. КМ-2",
+  title: "Компьютерные сети. КМ-3",
   authors: (
     "Кирш Я.А. ИДз-21-21. Вариант 8.",
   ),
