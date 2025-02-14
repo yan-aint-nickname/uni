@@ -96,19 +96,19 @@ $
 == Задание 3
 
 $
-N = 8
-
+N = 8\
 lambda_1 = 50+N = 58 1/"с"; lambda_2 = 51+N = 59 1/"с"; lambda_3 = 52+N = 60 1/"с"\
 mu_1 = 180+N = 188 1/"с"; mu_2 = 200+N = 208 1/"с"\
 
+lambda_"общ" = lambda_1 + lambda_2 + lambda_3 = 58+59+60 = 177 1/"с"
 
-underline(rho_1 = (lambda_1 + lambda_2)/mu_1 = (58+59)/188 = 117/188 approx 0.62)\
-underline(rho_2 = lambda_3/mu_2 = 60/208 approx 0.29)\
+underline(rho_1 = lambda_"общ"/mu_1 = 177/188 = 0.94) <= 1 => "узел стабильный"\
+underline(rho_2 = lambda_"общ"/mu_2 = 177/208 = 0.85) <= 1 => "узел стабильный"\
 
-t_1 = 1/(mu_1 - (lambda_1+lambda_2)) = 1/(188 - 117) approx 0.014"с"\
-t_2 = 1/(mu_2 - lambda_3) = 1/(208-60) approx 0.07"с"\
+t_1 = 1/(mu_1 - lambda_"общ") = 1/(188-177) approx 0.09"с"\
+t_2 = 1/(mu_2 - lambda_"общ") = 1/(208-177) approx 0.03"с"\
 
-underline(t = "max"(t_1,t_2) = 0.07"с")
+underline(t_"общ" = t_1 + t_2 = 0.09+0.03 = 0.12"с")
 $
 
 Полный код работы содержится в репозитории.#footnote(link("https://github.com/yan-aint-nickname/uni/tree/main/computer-networks/cw3"))

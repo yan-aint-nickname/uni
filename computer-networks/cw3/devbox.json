@@ -5,7 +5,7 @@
   ],
   "shell": {
     "init_hook": [
-      ". $VENV_DIR/bin/activate",
+      "echo \"welcome to cw3 computer networks\"",
     ],
     "scripts": {
       "setup": ["nvim --headless \"+MasonInstall tinymist\" +qa"],
