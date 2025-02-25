@@ -20,7 +20,7 @@
     } else {
       numbering("1.", ..nums)
     }
-  }
+  },
 )
 
 #outline()
@@ -29,86 +29,162 @@
 
 #muchpdf(read("assets/task.pdf", encoding: none), scale: 0.95)
 
-#pagebreak()
 
 = Решение
 
-/ $lambda$ : Интенсивность поступления сообщений
-/ $t^0$ : Время обслуживания сообщений узлом
-/ $mu$ : Интенсивность обслуживания сообщений в узле
-/ $t_i$ : Время задержки сообщений в системе ($i$ - в узле и очереди на ослуживание)
-/ $rho_i$: Коэффициент загркузки узла $i$
+#let N = 8
+#let mu1 = 3
+#let mu2 = 5
+#let mu3 = 9 + N
+#let mu4 = 7
+#let given_precision = 0.06
 
-== Задание 1
+#let f1(lambda1, mu1, gamma1, lambda2, mu3, gamma3, mu4, gamma4, round: 4) = {
+  calc.round(
+    lambda1 / (mu1 - gamma1 * lambda1)
+      + (2 * lambda1) / (mu3 - gamma3 * (2 * lambda1 + 2 * lambda2))
+      + lambda1 / (mu4 - gamma4 * (lambda1 + lambda2)),
+    digits: round,
+  )
+}
 
-$
-t^0 = 1/mu; t_i = 1/(mu_i - lambda_i); rho_i = lambda_i/mu_i; t^0_i = 1/(mu_i - lambda_i)
-$
+#let f2(lambda1, mu1, gamma2, lambda2, mu3, gamma3, mu4, gamma4, round: 4) = {
+  calc.round(
+    lambda2 / (mu2 - gamma2 * lambda2)
+      + (2 * lambda2) / (mu3 - gamma3 * (2 * lambda1 + 2 * lambda2))
+      + lambda2 / (mu4 - gamma4 * (lambda1 + lambda2)),
+    digits: round,
+  )
+}
 
-$
-N = 8\
-lambda_A = 50+8 = 58"с"^(-1)\
-t^0_A = 0.014 + 8*0.001 = 0.022"с"
-mu_A = 1/(t^0_A) = 1/0.022 = 45.45"с"^(-1)\
+// Not very much an optimized code :)
+#let gamma1 = 0.67
+#let gamma2 = 0.75
+#let gamma3 = 0.86
+#let gamma4 = 0.86
 
-rho_A = lambda_A/mu_A = 58/45.45 = 1.27 > 1 "система неустойчива, сообщения будут накапливаться в очереди"\
+#let lambda1 = 1.5
+#let lambda2 = 2.5
 
-underline(t_A = "система неустойчива")
-$
+#let f11 = f1(lambda1, mu1, gamma1, lambda2, mu3, gamma3, mu4, gamma4, round: 2)
+#let f21 = f2(lambda1, mu2, gamma2, lambda2, mu3, gamma3, mu4, gamma4, round: 2)
 
-$
-t^0_B = t^0_A / 2 = 0.022/2 = 0.011"с"\
-lambda_B = 58"с"^(-1)\
-mu_B = 1/t^0_B = 1/0.011 = 90.9"с"^(-1)\
-rho_B = lambda_B/mu_B = 58/90.9 = 0.63 lt.eq.slant 1 arrow.r.double "Система устойчива"\
+#let lambda3 = 2.25
+#let lambda4 = 3.75
 
-underline(t_B = 1/(mu_B-lambda_B) = 1/(90.9-58) = 0.03"с")\
+#let f12 = f1(lambda3, mu1, gamma1, lambda4, mu3, gamma3, mu4, gamma4, round: 2)
+#let f22 = f2(lambda4, mu2, gamma2, lambda4, mu3, gamma3, mu4, gamma4, round: 2)
 
-t^0_C = t^0_A / 2 = 0.022/2 = 0.011"с"\
-lambda_C = 58"с"^(-1)\
-mu_C = 1/t^0_C = 1/0.011 = 90.9"с"^(-1)\
-rho_C = lambda_C/mu_C = 58/90.9 = 0.63 lt.eq.slant 1 arrow.r.double "Система устойчива"\
+#let lambda5 = 2.625
+#let lambda6 = 4.375
 
-underline(t_C = 1/(mu_C-lambda_C) = 1/(90.9-58) = 0.03"с")
-$
+#let f13 = f1(lambda5, mu1, gamma1, lambda6, mu3, gamma3, mu4, gamma4, round: 2)
+#let f23 = f2(lambda5, mu2, gamma2, lambda6, mu3, gamma3, mu4, gamma4, round: 2)
 
-#pagebreak()
+#let lambda7 = 2.8125
+#let lambda8 = 4.6875
 
-== Задание 2
-Значение $t^0_A$ из первого задания
-
-$
-lambda = 58 1/"с"\
-p_1 = p_2 = p = 0.5\
-t^0_C = t^0_A = 0.022"с"\
-
-lambda_1 = p dot lambda = 0.5 * 58 = 29 1/"с"\
-mu_1 = 1/(t_0_C) = 1/0.022 = 45.45 1/"с"\
-
-rho_1 = lambda_1/mu_1 = 29/45.45 = 0.638 arrow.r.double "Система стабильна"\
-
-t_1 = 1/(mu_1 - lambda_1) = 1/(45.45 - 29) = 1/16.45 = 0.06 "с",
-"так как поток распределен равномерно" t_2 = t_1 = 0.06 "с"\
-
-underline(t_"общ" = p_1 * t_1 + p_2 + t_2 = 0.5*0.06 + 0.5*0.06 = 0.06 "с")
-$
-
-== Задание 3
+#let f14 = f1(lambda7, mu1, gamma1, lambda8, mu3, gamma3, mu4, gamma4, round: 2)
+#let f24 = f2(lambda7, mu2, gamma2, lambda8, mu3, gamma3, mu4, gamma4, round: 2)
 
 $
-N = 8\
-lambda_1 = 50+N = 58 1/"с"; lambda_2 = 51+N = 59 1/"с"; lambda_3 = 52+N = 60 1/"с"\
-mu_1 = 180+N = 188 1/"с"; mu_2 = 200+N = 208 1/"с"\
+  underline(s = 0);&Lambda_B(1,0) = 0; Lambda_E(1,0) = 3; Lambda_B(2,0) = 0; Lambda_E(2,0) = 5;\
 
-lambda_"общ" = lambda_1 + lambda_2 + lambda_3 = 58+59+60 = 177 1/"с"
+underline(s = 1);&lambda_1(1)=1.5; lambda_2(1)=2.5; f(1,1) = #f11 ; f(2,1) = #f21 ;\
+&Lambda_B(1,1) = 1.5; Lambda_E(1,1) = 3; Lambda_B(2,1) = 2.5; Lambda_E(2,1) = 5\
 
-underline(rho_1 = lambda_"общ"/mu_1 = 177/188 = 0.94) <= 1 => "узел стабильный"\
-underline(rho_2 = lambda_"общ"/mu_2 = 177/208 = 0.85) <= 1 => "узел стабильный"\
-
-t_1 = 1/(mu_1 - lambda_"общ") = 1/(188-177) approx 0.09"с"\
-t_2 = 1/(mu_2 - lambda_"общ") = 1/(208-177) approx 0.03"с"\
-
-underline(t_"общ" = t_1 + t_2 = 0.09+0.03 = 0.12"с")
+underline(s = 2);&lambda_1(2)=2.25; lambda_2(2)=3.75; f(1,2) = #f12 ; f(2,2) = #f22 ;\
+&Lambda_B(1,2) = 2.25; Lambda_E(1,2) = 3; Lambda_B(2,2) = 3.75; Lambda_E(2,2) = 5\
 $
 
-Полный код работы содержится в репозитории.#footnote(link("https://github.com/yan-aint-nickname/uni/tree/main/computer-networks/cw3"))
+#let precision(f_1, f_2, round: 2) = {
+  calc.round(calc.abs(f_1 - f_2) / f_1, digits: round)
+}
+
+Посчитаем точность вычислений:\
+$Delta_(q_1)  = abs(f(1,1) - f(1,2)) / f(1,1) = abs(#f11 - #f12) / #f11 = #precision(f11, f12, round: 4); "При этом заданная точность" epsilon = 0.06$\
+$Delta_(q_2)  = abs(f(2,1) - f(2,2)) / f(2,1) = abs(#f21 - #f22) / #f21 = #precision(f21, f22, round: 4); "При этом заданная точность" epsilon = 0.06$\
+Следовательно продолжаем вычисления
+
+$
+  underline(s = 3);&lambda_1(3)=2.625; lambda_2(3)=4.375; f(1,3) = #f13 ; f(2,3) = #f23 ;\
+&Lambda_B(1,3) = 2.625; Lambda_E(1,3) = 3; Lambda_B(2,3) = 4.375; Lambda_E(2,3) = 5\
+
+underline(s = 4);&lambda_1(4)=2.8125; lambda_2(4)=4.6875; f(1,4) = #f14 ; f(2,4) = #f24 ;\
+&Lambda_B(1,4) = 2.8125; Lambda_E(1,4) = 3; Lambda_B(2,4) = 4.6875; Lambda_E(2,4) = 5\
+$
+
+Посчитаем точность вычислений:\
+$Delta_(q_1)  = abs(f(1,3) - f(1,4)) / f(1,3) = abs(#f13 - #f14) / #f13 = #precision(f13, f14, round: 4); "При этом заданная точность" epsilon = 0.06$\
+$Delta_(q_2)  = abs(f(2,3) - f(2,4)) / f(2,3) = abs(#f23 - #f24) / #f23 = #precision(f23, f24, round: 4); "При этом заданная точность" epsilon = 0.06$\
+Следовательно продолжаем вычисления
+
+// the algorithm
+#let l1 = 2.90625
+#let l2 = 4.84375
+#let LB_1 = l1
+#let LE_1 = 3
+#let LB_2 = l2
+#let LE_2 = 5
+
+#let f_1 = f1(l1, mu1, gamma1, l2, mu3, gamma3, mu4, gamma4, round: 2)
+#let f_2 = f2(l1, mu2, gamma2, l2, mu3, gamma3, mu4, gamma4, round: 2)
+
+#let iteration = 5
+#let max_iterations = 20
+
+#let precision_ = calc.max(
+  precision(f13, f14, round: 4),
+  precision(f23, f24, round: 4),
+)
+
+#while precision_ > given_precision and iteration < max_iterations {
+  $
+    underline(s = #iteration) ; &lambda_1(#iteration)=#l1 ; lambda_2(#iteration)=#l2 ; f(1,#iteration) = #f_1 ; f(2,#iteration) = #f_2 ;\
+  &Lambda_B(1,#iteration) = #LB_1 ; Lambda_E(1,#iteration) = #LE_1 ; Lambda_B(2,#iteration) = #LB_2 ; Lambda_E(2,#iteration) = #LE_2\
+  $
+
+  if f_1 > 0 {
+    LB_1 = l1
+  } else {
+    LE_1 = l1
+  }
+
+  if f_2 > 0 {
+    LB_2 = l2
+  } else {
+    LE_2 = l2
+  }
+
+  let old_l1 = l1
+  let old_l2 = l2
+  let old_f1 = f_1
+  let old_f2 = f_2
+
+  l1 = calc.round((LB_1 + LE_1) / 2, digits: 5)
+  l2 = calc.round((LB_2 + LE_2) / 2, digits: 5)
+
+  f_1 = f1(l1, mu1, gamma1, l2, mu3, gamma3, mu4, gamma4, round: 2)
+  f_2 = f2(l1, mu2, gamma2, l2, mu3, gamma3, mu4, gamma4, round: 2)
+
+  precision_ = calc.max(
+    precision(old_f1, f_1, round: 4),
+    precision(old_f2, f_2, round: 4),
+  )
+  let old_iteration = iteration
+  iteration = iteration + 1
+
+  [Посчитаем точность вычислений:\ ]
+  $Delta_(q_1)  = abs(f(1,#old_iteration) - f(1,#iteration)) / f(1,#old_iteration) = abs(#f13 - #f14) / #f13 = #precision(old_f1, f_1, round: 4); "При этом заданная точность" epsilon = 0.06$
+  [\ ]
+  $Delta_(q_2)  = abs(f(2,#old_iteration) - f(2,#iteration)) / f(2,#old_iteration) = abs(#f23 - #f24) / #f23 = #precision(old_f2, f_2, round: 4); "При этом заданная точность" epsilon = 0.06$
+  [\ ]
+
+  if precision_ < given_precision {
+    [Необходимая точность достигнута]
+  } else {
+    [Продолжаем считать]
+  }
+}
+
+Полный код работы содержится в репозитории.#footnote(link("https://github.com/yan-aint-nickname/uni/tree/main/computer-networks/cw4"))
