@@ -40,13 +40,16 @@
 #let mu4 = 7
 #let given_precision = 0.06
 
+#let n1 = 7
+#let n2 = 13
+
 #let f1(lambda1, mu1, gamma1, lambda2, mu3, gamma3, mu4, gamma4, round: 4) = {
   calc.round(
     lambda1 / (mu1 - gamma1 * lambda1)
       + (2 * lambda1) / (mu3 - gamma3 * (2 * lambda1 + 2 * lambda2))
       + lambda1 / (mu4 - gamma4 * (lambda1 + lambda2)),
     digits: round,
-  )
+  ) -n1
 }
 
 #let f2(lambda1, mu1, gamma2, lambda2, mu3, gamma3, mu4, gamma4, round: 4) = {
@@ -55,7 +58,7 @@
       + (2 * lambda2) / (mu3 - gamma3 * (2 * lambda1 + 2 * lambda2))
       + lambda2 / (mu4 - gamma4 * (lambda1 + lambda2)),
     digits: round,
-  )
+  ) - n2
 }
 
 // Not very much an optimized code :)
@@ -65,7 +68,7 @@
 #let gamma4 = 0.86
 
 #let precision(f_1, f_2, round: 2) = {
-  calc.round(calc.abs(f_1 - f_2) / f_1, digits: round)
+  calc.round(calc.abs(f_1 - f_2) / calc.abs(f_1), digits: round)
 }
 
 // the dichotomic search
@@ -120,7 +123,7 @@ $
 
   let precision_ = calc.max(p_f_1, p_f_2)
 
-  if iteration > 6 {
+  if iteration > 2 {
     [Посчитаем точность вычислений:\ ]
     if precision_ < given_precision {
       $Delta_(q_1)  = abs(f(1,#old_iteration) - f(1,#iteration)) / f(1,#old_iteration) = abs(#f_1_prev - #f_1) / #f_1_prev = #p_f_1 < epsilon = #given_precision;$
