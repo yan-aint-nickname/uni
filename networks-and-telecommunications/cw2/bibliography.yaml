@@ -1,0 +1,52 @@
+tanenbaum_ru:
+    type: Book
+    title: Компьютерные сети
+    author: 
+      - "Таненбаум, Э."
+      - "Уэзеролл, Д."
+    edition: 5
+    publisher: Питер
+    location: СПб.
+    date: 2012
+    pages: 345
+    page-total: 960
+    isbn: 978-5-459-00342-0
+    note: "Перевод с английского. Оригинальное издание: Computer Networks, 5th Edition, Prentice Hall, Inc., 2011, ISBN 978-0132126953"
+    series: Классика Computer Science
+
+wiki_hidden_node:
+    type: Web
+    title: "Проблема скрытого узла"
+    author: "Википедия"
+    url: "https://ru.wikipedia.org/w/index.php?title=Проблема_скрытого_узла&stable=1"
+    date-accessed: 2025-04-04
+    note: "Свободная энциклопедия, стабильная версия страницы"
+
+olifer:
+    type: Book
+    title: "Компьютерные сети. Принципы, технологии, протоколы"
+    author:
+      - "Олифер, В. Г."
+      - "Олифер, Н. А."
+    edition: "Юбилейное издание"
+    publisher: "Питер"
+    location: "СПб."
+    date: 2020
+    page-total: 1008
+    isbn: "978-5-4461-1426-9"
+    series: "Учебник для вузов"
+    note: "ББК 32.988.02я7, УДК 004.7(07)"
+
+kurose:
+    type: Book
+    title: Компьютерные сети. Нисходящий подход
+    author: 
+      - "Куроуз, Дж."
+      - "Росс, К."
+    edition: 7
+    publisher: Эксмо
+    location: Москва
+    date: 2022
+    page-total: 912
+    isbn: 978-5-04-157719-9
+    note: "Перевод с английского. Оригинальное издание: Computer Networking: A Top-Down Approach"
