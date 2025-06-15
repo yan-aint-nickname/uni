@@ -1,0 +1,14 @@
+docker-official:
+    type: Web
+    title: Docker
+    url: https://www.docker.com/
+
+uni-db-repo:
+    type: Web
+    title: Репозиторий
+    url: https://github.com/yan-aint-nickname/uni/tree/main/databases/cw6
+
+dbeaver-official:
+    type: Web
+    title: DBeaver
+    url: https://dbeaver.io/
