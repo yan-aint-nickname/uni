@@ -1,0 +1,14 @@
+[workspace]
+authors = ["Yan Kirsh <yankirsh@yandex.ru>"]
+channels = ["conda-forge"]
+name = "task_2"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+marimo = ">=0.19.4,<0.20"
+polars = ">=1.37.1,<2"
+python = "3.14.*"
+pyzmq = ">=27.1.0,<28"

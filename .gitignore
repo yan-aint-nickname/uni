@@ -18,6 +18,7 @@
 
 # Fortran module files
 *.mod
+!go.mod
 *.smod
 
 # Compiled Static libraries
@@ -59,7 +60,7 @@ dist/
 # vendor/
 
 # Go workspace file
-go.work
+# go.work
 go.work.sum
 
 # env file

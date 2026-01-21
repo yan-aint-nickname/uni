@@ -1,0 +1,46 @@
+arts_pixi:
+  type: Repository
+  title: pixi
+  author: ["Arts, Ruben", "Zalmstra, Bas", "de Jager, Tim", "Vollprecht, Wolf"]
+  url: https://github.com/prefix-dev/pixi/
+  license: BSD-3-Clause
+
+marimo:
+  type: Repository
+  title: marimo
+  author: ["Marimo, Team"]
+  url: https://github.com/marimo-team/marimo
+
+polars:
+  type: Repository
+  title: polars
+  author: ["Polars, Team"]
+  url: https://github.com/pola-rs/polars
+
+python:
+  type: Repository
+  title: python
+  author: ["Python, Team"]
+  url: https://github.com/python/cpython
+  license: MIT
+
+sqlite3:
+  type: Repository
+  title: sqlite3
+  author: ["Sqlite, Team"]
+  url: https://github.com/sqlite/sqlite
+  license: Public Domain
+
+duckdb:
+  type: Repository
+  title: duckdb
+  author: ["Duckdb, Team"]
+  url: https://github.com/duckdb/duckdb
+  license: MIT
+
+golang:
+  type: Repository
+  title: golang
+  author: ["Golang, Team"]
+  url: https://github.com/golang/go
+  license: BSD-3-Clause
