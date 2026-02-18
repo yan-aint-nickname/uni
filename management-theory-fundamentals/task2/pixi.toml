@@ -1,0 +1,15 @@
+[workspace]
+authors = ["Yan Kirsh <yankirsh@yandex.ru>"]
+channels = ["conda-forge"]
+name = "task2"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+scipy = ">=1.17.0,<2"
+python = "3.14.*"
+jupyter = ">=1.1.1,<2"
+ipykernel = ">=7.2.0,<8"
+matplotlib = ">=3.10.8,<4"

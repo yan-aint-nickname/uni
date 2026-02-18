@@ -1,0 +1,44 @@
+scipy-2020:
+  type: article
+  title: "SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python"
+  author:
+    - name: Pauli Virtanen
+    - name: Ralf Gommers
+    - name: Travis E. Oliphant
+    - name: Matt Haberland
+    - name: Tyler Reddy
+    - name: David Cournapeau
+    - name: Evgeni Burovski
+    - name: Pearu Peterson
+    - name: Warren Weckesser
+    - name: Jonathan Bright
+    - name: Stéfan J. van der Walt
+    - name: Matthew Brett
+    - name: Joshua Wilson
+    - name: K. Jarrod Millman
+    - name: Nikolay Mayorov
+    - name: Andrew R. J. Nelson
+    - name: Eric Jones
+    - name: Robert Kern
+    - name: Eric Larson
+    - name: C. J. Carey
+    - name: İlhan Polat
+    - name: Yu Feng
+    - name: Eric W. Moore
+    - name: Jake VanderPlas
+    - name: Denis Laxalde
+    - name: Josef Perktold
+    - name: Robert Cimrman
+    - name: Ian Henriksen
+    - name: E. A. Quintero
+    - name: Charles R. Harris
+    - name: Anne M. Archibald
+    - name: António H. Ribeiro
+    - name: Fabian Pedregosa
+    - name: Paul van Mulbregt
+    - name: SciPy 1.0 Contributors
+  date: 2020
+  journal: "Nature Methods"
+  volume: 17
+  page-range: "261–272"
+  doi: "10.1038/s41592-019-0686-2"
