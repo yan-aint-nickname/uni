@@ -9,7 +9,10 @@
 
 #figure(image("../assets/task_2/02.png"), caption: [Сортировка списка участников бригады]) <task_2_02>
 
-#figure(image("../assets/task_2/03.png"), caption: [Сортировка списка участников бригады]) <task_2_03>
+#figure(
+  image("../assets/task_2/03.png"),
+  caption: [Подсчет количества работников в бригаде с зарплатой меньше стредней],
+) <task_2_03>
 
 #figure(caption: [Код программы], ```python
 # Загружаем модуль/фреймворк "polars" для работы с данными

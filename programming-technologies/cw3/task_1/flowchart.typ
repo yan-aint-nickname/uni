@@ -22,7 +22,7 @@
       node((0, 4), [Произведение элементов\ между `left` и `right`], name: <t1-product>, shape: utils.rect-procedure)
       node((0, 5), [Вывод массива, `i_min`, `i_max`,\ произведения элементов], shape: parallelogram, name: <t1-output>)
       node((0, 6), [Преобразование массива], name: <t1-sort>, shape: utils.rect-procedure)
-      node((0, 7), [Вывод отсоритрованного\ массива], name: <t1-sort-output>, shape: parallelogram)
+      node((0, 7), [Вывод отсортированного\ массива], name: <t1-sort-output>, shape: parallelogram)
       node((0, 8), [Конец], shape: circle, name: <t1-end>)
 
       edge(<t1-product>, <t1-output>, "-|>")
