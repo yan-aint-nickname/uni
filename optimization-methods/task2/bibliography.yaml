@@ -52,3 +52,19 @@ wikipedia-brent:
   url:
     value: "https://en.wikipedia.org/wiki/brent's_method"
     accessed: 2026-03-02
+
+typst-web:
+  type: Web
+  title: "Typst: Typesetting language and compiler"
+  author: ["Typst developers"]
+  date: 2023
+  url:
+    value: https://typst.app
+    accessed: 2026-03-09
+
+dijkstra-ewd654:
+  type: Web
+  author: Dijkstra, Edsger W.
+  title: "In honour of Fibonacci"
+  publisher: University of Texas at Austin
+  url: http://www.cs.utexas.edu/users/EWD/transcriptions/EWD06xx/EWD654.html

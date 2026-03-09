@@ -41,4 +41,130 @@ print("Iterations =", result_2.nit)
 # >> Minimum = -10.352568761729087
 # >> Iterations = 16
 
+
+# %%
+def f_3(x):
+    return np.pow(x, 2) + 2 * x - 4
+
+
+for e in (epsilon_1, epsilon_2):
+    result_3 = minimize_scalar(
+        f_3,
+        bounds=(-2, 1),
+        options={"xatol": e},
+    )
+
+    print("Minimum at =", result_3.x)
+    print("Minimum =", result_3.fun)
+    print("Iterations =", result_3.nit)
+    # >> Minimum at = -1.0
+    # >> Minimum = -5.0
+    # >> Iterations = 6
+
+
+# %%
+def f_4(x):
+    return np.pow(x - 2, 2)
+
+
+def golden_ration_lambda(a, b):
+    return a + 0.382 * (b - a)
+
+
+def golden_ration_mu(a, b):
+    return a + 0.618 * (b - a)
+
+
+# 4:
+a = 1.584
+b = 2.292
+l4 = golden_ration_lambda(a, b)
+m4 = golden_ration_mu(a, b)
+
+f_4_l4 = f_4(l4)
+f_4_m4 = f_4(m4)
+
+print(l4, m4, f_4_l4, f_4_m4)
+
+# %%
+
+# 5:
+a = 1.854
+b = 2.292
+accuracy = b - a
+l4 = golden_ration_lambda(a, b)
+m4 = golden_ration_mu(a, b)
+
+f_4_l4 = f_4(l4)
+f_4_m4 = f_4(m4)
+
+print(accuracy, l4, m4, f_4_l4, f_4_m4)
+
+# %%
+# 6:
+a = 1.854
+b = 2.124
+accuracy = b - a
+l4 = golden_ration_lambda(a, b)
+m4 = golden_ration_mu(a, b)
+
+f_4_l4 = f_4(l4)
+f_4_m4 = f_4(m4)
+
+print(accuracy, l4, m4, f_4_l4, f_4_m4)
+
+# %%
+# 7:
+a = 1.957
+b = 2.124
+accuracy = b - a
+l4 = golden_ration_lambda(a, b)
+m4 = golden_ration_mu(a, b)
+
+f_4_l4 = f_4(l4)
+f_4_m4 = f_4(m4)
+
+print(accuracy, l4, m4, f_4_l4, f_4_m4)
+
+# %%
+# 8:
+a = 1.957
+b = 2.06
+accuracy = b - a
+l4 = golden_ration_lambda(a, b)
+m4 = golden_ration_mu(a, b)
+
+f_4_l4 = f_4(l4)
+f_4_m4 = f_4(m4)
+
+print(accuracy, l4, m4, f_4_l4, f_4_m4)
+
+# %%
+# 9:
+a = 1.957
+b = 2.02
+accuracy = b - a
+l4 = golden_ration_lambda(a, b)
+m4 = golden_ration_mu(a, b)
+
+f_4_l4 = f_4(l4)
+f_4_m4 = f_4(m4)
+
+print(accuracy, l4, m4, f_4_l4, f_4_m4)
+
+# %%
+# Fibonacci
+
+def fib(n: int) -> int:
+    next = 1
+    prev = 0
+    for _ in range(n):
+        tmp = next
+        next = prev + next
+        prev = tmp
+
+    return prev
+
+print(fib(9))
+
 # %%
