@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Yan Kirsh <yankirsh@yandex.ru>"]
+channels = ["conda-forge"]
+name = "task3"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+ipykernel = ">=7.2.0,<8"
+scipy = ">=1.17.1,<2"
